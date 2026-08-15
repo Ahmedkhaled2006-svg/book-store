@@ -1,0 +1,213 @@
+ /* ---adminlogin--- */
+.toplogin {
+    background-image: linear-gradient(90deg, rgba(11,31,39,.82), rgba(11,31,39,.25)), url('photo-1507842217343-583bb7270b66.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+}
+
+.toplogin h1{
+    color: rgb(216, 206, 166);
+    text-align: center;
+    font-size: 5rem;
+    margin: 5px 0;
+}
+
+
+
+.login {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    padding: 20px;
+}
+
+
+.botton {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    max-width: 350px;
+    margin-bottom: 20px;
+}
+
+#user, #admin {
+    flex: 1;
+    padding: 12px 20px;
+    border: 1px solid #95b2d5;
+    border-radius: 20px;
+    background-color: #f8f9fa;
+    color: #333;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+
+#user.active, #admin.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #0056b3;
+}
+
+
+
+.form-container {
+    display: none; 
+    width: 100%;
+    max-width: 350px;
+}
+
+.form-container.active {
+    display: block;
+}
+
+fieldset {
+    border: 1px solid #95b2d5;
+    border-radius: 12px;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-container input[type="email"],
+.form-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.submit-btn {
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background-color: #218838;
+}
+
+.signup-text {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+}
+ /* ---dashboard--- */
+.topdashboard {
+    background-image: linear-gradient(90deg, rgba(11,31,39,.82), rgba(11,31,39,.25)),url('Screenshot 2026-08-15 162347.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    align-items: center;
+    min-height: 60vh;
+}
+
+.topdashboard h1{
+    color: rgb(216, 206, 166);
+    text-align: left;
+    font-size: 3rem;
+    margin: 5px 0;
+} 
+.admin-layout {
+    display: flex;            
+    gap: 30px;
+    padding: 30px 20px;
+    background-color: #f8f9fa;
+    min-height: 80vh;
+    align-items: center;
+    justify-content: center;
+    background-image:linear-gradient(rgba(255, 255, 255, 0.6), rgba(11, 31, 39, 0.6)),url('HOME.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.admin-form {
+    display: flex;             
+    flex-direction: column;    
+    width: 100%;
+    max-width: 400px;          
+    background: #ffffff;
+    padding: 30px 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    gap: 15px;              
+}
+
+.admin-form label {
+    display: flex;            
+    flex-direction: column;
+    gap: 6px;
+    font-weight: 600;
+    color: #0b1f27;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+.admin-form input,
+.admin-form textarea {
+    width: 100%;
+    padding: 10px 12px;       
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+}
+
+.admin-form input:focus,
+.admin-form textarea:focus {
+    border-color: #0b1f27;
+    box-shadow: 0 0 0 3px rgba(11, 31, 39, 0.15);
+}
+
+.admin-form textarea {
+    resize: vertical;
+}
+
+.button {
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s, opacity 0.2s;
+}
+
+.button.primary {
+    background-color: #0b1f27;
+    color: #d8cea6;
+}
+
+.button.primary:hover {
+    opacity: 0.9;
+}
+
+.button.ghost {
+    background-color: transparent;
+    color: #555;
+    border: 1px solid #ccc;
+}
+
+.button.ghost:hover {
+    background-color: #eee;
+}

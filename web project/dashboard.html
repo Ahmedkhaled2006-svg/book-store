@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dashboard</title>
+        <link rel="stylesheet" href="admin.css">
+        <script src="admin.js" defer></script>
+    </head>
+    <body>
+  <main>
+    <div class="topdashboard">
+        <article>
+            <h1>Welcome <br>to the Admin<br>Dashboard</h1>
+        </article>
+    </div>
+    <section class="admin-layout">
+      <form class="admin-form" id="bookForm">
+        <label>Title <input id="bookTitle"></label><br>
+        <label>Author <input id="bookAuthor"></label><br>
+        <label>Price <input id="bookPrice" type="number"></label><br>
+        <label>Category <input id="bookCategory"></label><br>
+        <label>Image URL <input id="bookImage"></label><br>
+        <label>Description <textarea id="bookDescription" rows="4"></textarea></label>
+        <div class="form-actions">
+          <button class="button primary" type="submit">Save Book</button>
+          <button class="button ghost" type="button" id="resetForm">Clear</button>
+        </div>
+      </form>
+
+    
+    </section>
+  </main>
+
+    </body>
+</html>

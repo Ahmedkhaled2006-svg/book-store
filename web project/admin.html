@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="admin.css">
+    <script src="admin.js" defer></script> 
+</head>
+<body>
+    
+    <main>
+       
+        <div class="toplogin">
+            <article>
+                <h1>Welcome to the login page</h1>
+            </article> 
+        </div>
+          
+        <div class="login">
+            <h1>Login</h1>
+            <p>Choose your login type:</p>
+
+        
+            <div class="botton">
+                <input type="button" value="User" id="user" class="active" onclick="loginuser()">
+                <input type="button" value="Admin" id="admin" onclick="loginadmin()">
+            </div>
+
+           
+            <div id="loginuser" class="form-container active">
+                <fieldset>
+                    <form onsubmit="return validateLoginForm()">
+                        <h2>User Login</h2>
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" placeholder="Enter your email">
+
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword"  placeholder="Enter password">
+
+                        <button type="submit" class="submit-btn">Login</button>
+                        <p class="signup-text">No account yet? <a href="register.html">Create one</a></p>
+                    </form>
+                </fieldset>
+            </div>
+
+            <div id="loginadmin" class="form-container">
+                <fieldset>
+                    <form onsubmit="return validateAdminForm()">
+                        <h2>Admin Login</h2>
+                        <label for="adminEmail">Email</label>
+                        <input type="email" id="adminEmail"  placeholder="Enter admin email">
+
+                        <label for="adminPassword">Password</label>
+                        <input type="password" id="adminPassword"  placeholder="Enter password">
+
+                        <button type="submit" class="submit-btn">Login</button>     
+                    </form>
+                </fieldset>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
