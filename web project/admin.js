@@ -9,7 +9,9 @@
        {
         alert("login successful! welcome back admin");
         window.location.href="dashboard.html";
+        localStorage.setItem("currentuser",JSON.stringify({email:Email,pass:Pass}));
         return false;
+
        }
        var user=JSON.parse(localStorage.getItem("users"))||[];
        var founduser=user.find(function(user){
@@ -169,3 +171,12 @@ function editBook(index) {
 document.addEventListener("DOMContentLoaded", function() {
     displayBook();
 });
+
+  function logout() 
+ {
+  localStorage.removeItem("currentuser");
+   window.location.href = "home.html";
+ }
+
+
+ 
