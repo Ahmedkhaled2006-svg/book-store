@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dashboard</title>
+        <link rel="stylesheet" href="admin.css">
+        <script src="data.js"></script>
+        <script src="admin.js" defer></script>
+        <script src="book-details.js"></script>
+    </head>
+    <body>
+  <main>
+    <nav class="navbar">
+   
+    <a href="home.html">Home</a>
+    <a href="#" onclick="gotocart(event)">🛒 Cart</a>
+    <a href="book page.html">📚BOOKS</a>
+</nav>
+    <div class="topdashboard">
+        <article>
+           <br><br> <h1>  Welcome <br>  to the Admin<br>  Dashboard</h1><br>
+            <p>now you can <br>Add, edit, and delete<br> books.</p>
+        </article>
+    </div>
+    <section class="admin-layout">
+      <form class="admin-form" id="bookForm">
+        <label>Title <input id="bookTitle"></label><br>
+        <label>Author <input id="bookAuthor"></label><br>
+        <label>Price <input id="bookPrice" type="number"></label><br>
+       <label>Category 
+    <select id="bookCategory">
+        <option value="">-- Select Category --</option> 
+        <option value="Literature">Literature</option>
+        <option value="Fiction">Fiction</option>
+        <option value="Horror">Horror</option>
+        <option value="Comics-Manga">Comics-Manga</option>
+        <option value="Scientific">Scientific</option>
+    </select>
+</label>
+        <label>Image URL <input id="bookImage"></label><br>
+        <label>Description <textarea id="bookDescription" rows="4"></textarea></label>
+        <div class="form-actions">
+          <button class="button primary" type="submit" onclick="addBook(); saveBooksToLocalStorage();">Save Book</button>
+          <button class="button ghost" type="button" id="resetForm" onclick="clearForm();">Clear</button>
+        </div>
+      </form>
+    </section>
+    <section class="book-list">
+      <h2>Book List</h2>
+      <div id="bookList">
+        <input type="button" value="delete" id="delete-book" class="delete-btn" onclick="deleteBook()">
+        <input type="button" value="edit" id="edit-book" class="edit-btn" onclick="editBook()">
+      </div>
+    </section>
+  </main>
+    </body>
+</html>

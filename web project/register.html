@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="jana.css">
+    <title>register</title>
+    <script type="text/javascript">
+ function register()
+ {
+    var Fname=document.getElementById("fname").value;
+    var Lname=document.getElementById("lname").value;
+    var Email=document.getElementById("regemail").value;
+    var RegPass=document.getElementById("regpass").value;
+// regex /regular expression 
+ var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;   
+    var passRegex = /^.{6,}$/; // كلمة السر 6 خانات على الأقل
+
+    if (!emailRegex.test(Email)) {
+        alert("Please enter a valid email address!");
+        return false;
+    }
+
+    if (!passRegex.test(RegPass)) {
+        alert("Password must be at least 6 characters long!");
+        return false;
+    }
+
+
+    var users =JSON.parse(localStorage.getItem("users"))||[];
+    var exist=users.find(function(user)
+    {
+        return user.email==Email;
+    });
+  if(exist)
+ {
+    alert("user already exists , please login");
+    return false;
+ }
+ else
+ {
+    
+    var newUser = {
+        fName: Fname,
+        lName: Lname,
+        email: Email,
+        pass: RegPass
+    };
+    users.push(newUser);
+    localStorage.setItem("users", JSON.stringify(users));
+    localStorage.setItem("currentuser", JSON.stringify(newUser));
+    alert("registration successful!");
+    window.location.href="home.html";
+    return false;
+  }
+ } 
+    </script>
+ </head>
+ <body>
+<div id="bg4">
+    <div class="login">
+        <img class="img" src="images.jpg" alt="user icon">
+        <h1>Sign  Up</h1>
+        <form class="inputform" onsubmit="return register()">
+            <input type="text" placeholder=" First Name" id="fname" required><br>
+            <input type="text" placeholder=" Last Name" id="lname" required><br>
+            <input type="email" placeholder=" Email" id="regemail" required><br>
+            <input type="password" placeholder=" Password" id="regpass" required><br>
+            <button type="submit" class="btn">SIGNUP</button>
+        </form>
+        <p class="switch">
+            already have an account?<br><br>
+            <a href="admin.html" class="reg">Login</a>
+        </p>
+    </div>
+</div>
+ </body>
+</html>

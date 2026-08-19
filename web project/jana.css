@@ -1,0 +1,141 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;      
+    min-height: 100vh; 
+    background-color: #f4f6f9;
+}
+
+#bg4 {
+    background-image: url('bg4.jpg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    width: 100%;       
+    min-height: 100vh;  
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* 2. حاوية الكارت الرئيسية (Login / Sign Up Card) */
+.login {
+    background-color: #ffffff;
+    padding: 45px 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 460px; /* حجم ألمّ وأشيك من 600px بالفورم */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* 3. صورة البروفايل / اللوجو */
+.img {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 12px;
+    border: 3px solid #e8f5e9;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #1a252f;
+    margin-bottom: 25px;
+    letter-spacing: -0.5px;
+}
+
+/* 4. نمط الفورم والمدخلات (Inputs) */
+.inputform {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: center; /* لضمان توصيط كل العناصر تلقائياً */
+    width: 100%;
+}
+
+.inputform input {
+    width: 100%; /* استخدام 100% لتجاوب ممتاز مع الحاوية */
+    padding: 14px 18px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 15px;
+    color: #333;
+    background-color: #fafafa;
+    transition: all 0.25s ease-in-out;
+    outline: none;
+}
+
+.inputform input:focus {
+    background-color: #ffffff;
+    border-color: #2e7d32;
+    box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.12);
+}
+
+.inputform input::placeholder {
+    color: #aaa;
+}
+
+/* 5. زرار التسجيل (Submit Button) */
+.btn {
+    width: 100%; /* مفرود بعرض الفورم للتناسق */
+    padding: 14px;
+    background-color: #2e7d32;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(46, 125, 50, 0.2);
+}
+
+.btn:hover {
+    background-color: #1b5e20;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(46, 125, 50, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* 6. النص والرابط السفلي (Switch / Register Link) */
+.switch {
+    margin-top: 25px;
+    font-size: 14px;
+    color: #666;
+}
+
+.reg {
+    color: #2e7d32; /* توحيد اللون الأخضر المريح للعين بدلاً من الأزرق */
+    font-weight: 600;
+    text-decoration: none;
+    margin-right: 5px;
+    transition: color 0.2s ease;
+}
+
+.reg:hover {
+    color: #1b5e20;
+    text-decoration: underline;
+}
