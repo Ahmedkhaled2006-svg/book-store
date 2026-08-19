@@ -6,6 +6,7 @@
         <script src="data.js"></script>
         <script src="admin.js" defer></script>
         <script src="book-details.js"></script>
+          <script src="logout.js" defer></script>
     </head>
     <body>
   <main>
@@ -14,6 +15,9 @@
     <a href="home.html">Home</a>
     <a href="#" onclick="gotocart(event)">🛒 Cart</a>
     <a href="book page.html">📚BOOKS</a>
+    <div id="userLinks" style="display: none;">
+        <button onclick="logout()" class="logout-btn">Logout</a>
+    </div>
 </nav>
     <div class="topdashboard">
         <article>
@@ -49,7 +53,9 @@
       <div id="bookList">
         <input type="button" value="delete" id="delete-book" class="delete-btn" onclick="deleteBook()">
         <input type="button" value="edit" id="edit-book" class="edit-btn" onclick="editBook()">
+
       </div>
+
     </section>
   </main>
     </body>

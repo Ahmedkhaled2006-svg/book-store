@@ -1,28 +1,19 @@
-function loginuser() {
 
-    document.getElementById("loginuser").classList.add("active");
-    document.getElementById("loginadmin").classList.remove("active");
 
-    document.getElementById("user").classList.add("active");
-    document.getElementById("admin").classList.remove("active");
-}
-
-function loginadmin() {
-   
-    document.getElementById("loginadmin").classList.add("active");
-    document.getElementById("loginuser").classList.remove("active");
-
-    document.getElementById("admin").classList.add("active");
-    document.getElementById("user").classList.remove("active");
-}
-function validweb()
+     function validweb()
      {
        var valid = true
-       var Email=document.getElementById("loginEmail").value;
-       var Pass=document.getElementById("loginPassword").value;
-       var users=JSON.parse(localStorage.getItem("users"))||[];
-      var founduser = users.find(function(user) {
-        return user.email == Email && user.pass == Pass;
+       var Email=document.getElementById("email").value;
+       var Pass=document.getElementById("pass").value;
+       if(Email=="admin@a.com"&&Pass=="Ahmed2006@")
+       {
+        alert("login successful! welcome back admin");
+        window.location.href="dashboard.html";
+        return false;
+       }
+       var user=JSON.parse(localStorage.getItem("users"))||[];
+       var founduser=user.find(function(user){
+         return user.email==Email && user.pass==Pass;
       });
       if(founduser)
        {
@@ -33,42 +24,14 @@ function validweb()
 
       }
      else
-     {
+      {
         alert(" user not found OR invalid email or password ");
         return false;
       }
 
      }
  
-function validateAdminForm() {
-    var email = document.getElementById("adminEmail").value;
-    var password = document.getElementById("adminPassword").value;
 
-    if (email === "" || password === "") {
-        alert("Please fill in all fields.");
-        return false;
-    }
-    else if (email !== "admin@a.com") {
-        alert("Invalid admin email.");
-        return false;
-    }
-    else if (password.length < 6) {
-        alert("Password must be at least 6 characters long.");
-        return false;
-    }
-    else if (password !== "Ahmed2006@") {
-        alert("Invalid admin password.");
-        return false;
-    }
-    else
-    {
-        var adminacount={email,password };
-        localStorage.setItem("currentuser",JSON.stringify(adminacount))
-
-      window.location.href = "dashboard.html";
-       return false;
-    }
-}
 
 var newBook;
 

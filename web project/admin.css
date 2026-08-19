@@ -1,4 +1,4 @@
- /* ---adminlogin--- */
+
 .toplogin {
     background-image: linear-gradient(90deg, rgba(11,31,39,.82), rgba(11,31,39,.25)), url('photo-1507842217343-583bb7270b66.jpg');
     background-size: cover;
@@ -24,93 +24,101 @@
     flex-direction: column; 
     align-items: center;
     justify-content: center;
-    min-height: 50vh;
-    padding: 20px;
-}
-
-
-.botton {
-    display: flex;
-    gap: 10px;
-    width: 100%;
-    max-width: 350px;
-    margin-bottom: 20px;
-}
-
-#user, #admin {
-    flex: 1;
-    padding: 12px 20px;
-    border: 1px solid #95b2d5;
+  background-color: #ffffff;
+     padding: 45px 40px;
     border-radius: 20px;
-    background-color: #f8f9fa;
-    color: #333;
-    cursor: pointer;
-    font-size: 15px;
-    font-weight: bold;
-}
-
-
-#user.active, #admin.active {
-    background-color: #007bff;
-    color: white;
-    border-color: #0056b3;
-}
-
-
-
-.form-container {
-    display: none; 
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
     width: 100%;
-    max-width: 350px;
+    max-width: 460px; 
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+margin:40px auto;
+
+
+}
+.login:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #1a252f;
+    margin-bottom: 25px;
+    letter-spacing: -0.5px;
 }
 
-.form-container.active {
-    display: block;
-}
 
-fieldset {
-    border: 1px solid #95b2d5;
-    border-radius: 12px;
-    padding: 20px;
-    background-color: #fff;
-}
-
-.form-container form {
+.inputform {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-}
-
-.form-container input[type="email"],
-.form-container input[type="password"] {
+    gap: 18px;
+    align-items: center; 
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-sizing: border-box;
 }
 
-.submit-btn {
-    padding: 10px;
-    background-color: #28a745;
-    color: white;
+.inputform input {
+    width: 100%; 
+    padding: 14px 18px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 15px;
+    color: #333;
+    background-color: #fafafa;
+    transition: all 0.25s ease-in-out;
+    outline: none;
+}
+
+.inputform input:focus {
+    background-color: #ffffff;
+    border-color: #2e7d32;
+    box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.12);
+}
+
+.inputform input::placeholder {
+    color: #aaa;
+}
+
+
+.btn {
+    width: 100%; 
+    padding: 14px;
+    background-color: #2e7d32;
+    color: #ffffff;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
-    font-weight: bold;
+    font-size: 16px;
+    font-weight: 600;
     margin-top: 10px;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(46, 125, 50, 0.2);
 }
 
-.submit-btn:hover {
-    background-color: #218838;
+.btn:hover {
+    background-color: #1b5e20;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(46, 125, 50, 0.3);
 }
+
+.btn:active {
+    transform: translateY(0);
+}
+
+
+.switch {
+    margin-top: 25px;
+    font-size: 14px;
+    color: #666;
+}
+
+
 
 .signup-text {
     font-size: 14px;
     text-align: center;
     margin-top: 10px;
-}
- /* ---dashboard--- */
+} 
+
 .topdashboard {
     background-image: linear-gradient(90deg, rgba(11,31,39,.25), rgba(11,31,39,.82)),url('oldmanlib.png');
     background-size: cover;
@@ -219,7 +227,7 @@ fieldset {
 .button.ghost:hover {
     background-color: #eee;
 }
-/* card in dashboard */
+
 
 #bookList {
     display: flex;
@@ -329,7 +337,7 @@ fieldset {
 .book .delete-btn:hover {
     background-color: #c9302c;
 }
-/* navbar */
+
 .navbar {
     display: flex;
     align-items: center;
@@ -365,4 +373,16 @@ fieldset {
 
 .navbar .logo:hover {
     background-color: transparent;
+}
+.navbar .logout-btn {
+    background-color: #dc3545;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+.navbar .logout-btn:hover {
+    background-color: #b02a37;
+    color: white;
 }
