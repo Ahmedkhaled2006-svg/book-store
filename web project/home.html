@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Book Store - Home</title>
+
+    <link rel="stylesheet" href="home.css">
+    <script src="data.js"></script>
+    <script src="book-details.js"></script>
+    <script src="logout.js"></script>
+
+</head>
+
+<body>
+ 
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+   <a href="home.html" class="logo">📚 AJTR</a>
+   <div class="search-container">
+    <input type="text" id="searchInput" placeholder="search..." oninput="handleSearch()">
+</div>
+    <a href="home.html">Home</a>
+    <a href="#" onclick="gotocart(event)">🛒 Cart</a>
+    <a href="book page.html">📚BOOKS</a>
+
+   
+
+   
+    <div id="guestLinks">
+        <a href="admin.html">Login</a>
+        <a href="register.html" class="signup-btn">Sign Up</a>
+    </div>
+
+   
+    <div id="userLinks" style="display: none;">
+        <button onclick="logout()" class="logout-btn">Logout</a>
+    </div>
+</nav>
+<!-- Connect with us -->
+<a href="https://www.instagram.com/a7med5aled.ak/" target="_blank" class="connect-btn">
+    <span class="connect-icon">💬</span>
+    <span>Connect with us</span>
+</a>
+
+    
+
+
+    <!-- Home Section -->
+    <section class="home">
+      
+
+<div id="bookList" class="books-grid"></div>
+
+        <h1>Welcome to Our Book Store</h1>
+
+        <p>
+            Discover your favorite books and explore new stories.
+        </p>
+
+        <button onclick="goToBooks()">
+            Explore Books
+        </button>
+
+    </section>
+
+
+    <!-- Image Slider -->
+    <section class="slider">
+
+        <img id="sliderImage" src="book1.jpeg" alt="Book">
+
+        <button class="previous" onclick="previousImage()">
+            ❮
+        </button>
+
+        <button class="next" onclick="nextImage()">
+            ❯
+        </button>
+
+    </section>
+
+
+    <!-- Small information section -->
+    <section class="about">
+
+        <h2>Why Choose Us?</h2>
+
+        <p>
+            We provide a variety of books for different interests.
+        </p>
+
+        <div class="features">
+
+            <div>
+                <h3>📚 Many Books</h3>
+                <p>Find different types of books.</p>
+            </div>
+
+            <div>
+                <h3>🔎 Easy Search</h3>
+                <p>Find your favorite book easily.</p>
+            </div>
+
+            <div>
+                <h3>🛒 Easy Shopping</h3>
+                <p>Add books to your cart.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        <p>© 2026 AJTR Book Store</p>
+    </footer>
+
+
+    <script type="text/javascript">
+    
+
+function updateNavbar() {
+    
+    var currentuser = JSON.parse(localStorage.getItem("currentuser"));
+
+    
+    var guestLinks = document.getElementById("guestLinks");
+    var userLinks = document.getElementById("userLinks");
+
+    
+    if (currentuser) {
+   
+        if (guestLinks) guestLinks.style.display = "none";
+        if (userLinks) userLinks.style.display = "flex";
+    } else {
+        
+        if (guestLinks) guestLinks.style.display = "flex";
+        if (userLinks) userLinks.style.display = "none";
+    }
+}
+
+// Images used in the slider
+
+let images = [
+  "book1.jpeg",
+  "book2.jpeg",
+  "book3.jpeg"
+];
+
+
+// Current image number
+
+let currentImage = 0;
+
+
+// Get the image from HTML
+
+let sliderImage = document.getElementById("sliderImage");
+
+
+// Function for next image
+
+function nextImage() {
+
+    currentImage++;
+
+    if (currentImage >= images.length) {
+        currentImage = 0;
+    }
+
+    sliderImage.src = images[currentImage];
+}
+
+
+// Function for previous image
+
+function previousImage() {
+
+    currentImage--;
+
+    if (currentImage < 0) {
+        currentImage = images.length - 1;
+    }
+
+    sliderImage.src = images[currentImage];
+}
+
+
+// Button to go to Books page
+
+function goToBooks() {
+
+    window.location.href = "book page.html";
+
+}
+// search about book
+function handleSearch() {
+    
+    const searchTerm = document.getElementById("searchInput").value.toLowerCase();
+
+    
+    const filteredBooks = BOOKS.filter(book => {
+        const titleMatch = book.title.toLowerCase().includes(searchTerm);
+        const authorMatch = book.author && book.author.toLowerCase().includes(searchTerm);
+        return titleMatch || authorMatch;
+    });
+
+    displayBook(filteredBooks); 
+  
+}
+var BOOKS = JSON.parse(localStorage.getItem("books"));
+
+if (!BOOKS || BOOKS.length === 0) {
+    if (typeof initialBOOKS !== 'undefined') {
+        BOOKS = [...initialBOOKS]; 
+    } else {
+        BOOKS = []; 
+    }
+    localStorage.setItem("books", JSON.stringify(BOOKS));
+}
+
+function displayBook(booksToDisplay) { 
+
+    var currentBooks = booksToDisplay || BOOKS;
+    
+    var container = document.getElementById("bookList");
+    if (!container) return;
+
+    container.innerHTML = ""; 
+
+    if (currentBooks.length === 0) {
+        container.innerHTML = "<p style='text-align: center; width: 100%; color: #777;'>can not find</p>";
+        return;
+    }
+
+    for (let i = 0; i < currentBooks.length; i++) {
+        var book = currentBooks[i];
+
+        var card = document.createElement("div");
+        card.className = "book";
+
+        var details = document.createElement("details");
+
+        var summary = document.createElement("summary");
+        summary.textContent = book.title;
+
+        var author = document.createElement("p");
+        author.textContent = "Author: " + book.author;
+
+        var price = document.createElement("p");
+        price.textContent = "Price: $" + book.price;
+
+        var category = document.createElement("p");
+        category.textContent = "Category: " + book.category;
+
+        var img = document.createElement("img");
+        img.src = book.image;
+        img.alt = book.title;
+
+        var description = document.createElement("p");
+        description.textContent = "Description: " + book.description;
+
+        details.appendChild(summary);
+        details.appendChild(author);
+        details.appendChild(price);
+        details.appendChild(category);
+        card.appendChild(img);
+        details.appendChild(description);
+        card.appendChild(details);
+       var cartBtn = document.createElement("button");
+        cartBtn.textContent = "🛒 Add to Cart";
+        cartBtn.className = "add-to-cart-btn";
+        
+        cartBtn.onclick = function() {
+            addToCart(book.id); 
+        };
+        card.appendChild(cartBtn);
+
+        container.appendChild(card);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", updateNavbar);
+
+
+// Change image automatically every 3 seconds
+
+setInterval(nextImage, 3000);
+
+    </script>
+
+</body>
+
+</html>

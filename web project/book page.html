@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html >
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Book Explorer </title>
+        <script src="book-details.js"></script>
+         <script src="logout.js"></script>
+         
+<style> 
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    width: 100%;
+    overflow-x: hidden; 
+}
+.navbar {
+    background-color: #222;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* navbar */
+.navbar .logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ff9900; 
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    margin-right: auto; 
+}
+
+.navbar .logo:hover {
+    color: #fff;
+}
+
+.navbar a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    margin: 0 12px;
+}
+
+.navbar a:hover {
+    color: #ff9900;
+}
+
+
+.navbar div {
+    display: flex;
+    align-items: center;
+}
+
+
+.navbar .logout-btn {
+    background-color: #dc3545;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+.navbar .logout-btn:hover {
+    background-color: #b02a37;
+    color: white;
+}
+
+.navbar .signup-btn {
+    background-color: #007bff; 
+    color: white !important; 
+    padding: 7px 16px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.navbar .signup-btn:hover {
+    background-color: #0056b3; 
+}
+
+.books-section {
+    padding: 40px;
+}
+/* add to cart btn */
+ .add-btn {
+    background-color:  #4a3319;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+ .add-btn:hover {
+    background-color:  #4a3319;
+}
+/* Page Title */
+.books-section h1 {
+    color: #3E2412;
+    text-align: center;
+    font-size: 65px;
+    font-weight: 600;
+    font-family: arial, sans-serif;
+    text-shadow: 0 3px 4px rgba(0, 0, 0, .5);
+}
+
+.books-section > p {
+    text-align: center;
+    font-family: arial, sans-serif;
+    opacity: .5;
+    margin-bottom: 20px;
+}
+
+/* Categories + Books Layout */
+.books-section {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    column-gap: 40px;
+}
+
+/* Title takes the full width */
+.books-section h1,
+.books-section > p {
+    grid-column: 1 / -1;
+}
+
+/* Categories Sidebar */
+.categories {
+    position: sticky;
+    top: 300px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+}
+
+/* Category Buttons */
+.category-btn {
+    padding: 12px 15px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    text-align: left;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+.category-btn.active {
+    background-color: #3E2412;
+    color: white;
+}
+
+.category-btn:hover {
+    background-color: #5C3317;
+    color: white;
+}
+
+/* Books Grid Container */
+.books-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid #ddd; 
+    padding-top: 30px;
+    gap: 25px;
+}
+
+/* Each Book Card  */
+.book-card {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 15px;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.54);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: cardAppear 0.4s ease-out forwards;
+}
+
+.book-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Card Elements */
+.book-card img {
+    width: 150px;
+    height: 220px;
+    object-fit: contain;
+    border-radius: 8px;
+    grid-row: 1 / 6;
+}
+
+.book-card h2 {
+    font-size: 30px;
+}
+
+.book-card .author,
+.book-card .category,
+.book-card .price {
+    margin: 0;
+}
+
+.book-card .by {
+    opacity: 0.5;
+}
+
+.book-card .category,
+.book-card .price {
+    display: block;
+}
+
+.book-card .price {
+    font-weight: bold;
+}
+
+/* Typography Rules */
+.book-card .author,
+.book-card .category,
+.book-card .price,
+.book-card a {
+    font-family: Arial, sans-serif;
+}
+
+</style>
+    </head>
+
+    <body>
+        <main>
+            <nav class="navbar">
+   <a href="home.html" class="logo">📚 AJTR</a>
+    <a href="home.html">Home</a>
+    <a href="#" onclick="gotocart(event)">🛒 Cart</a>
+    <a href="book page.html">📚BOOKS</a>
+
+   
+    <div id="guestLinks">
+        <a href="admin.html">Login</a>
+        <a href="register.html" class="signup-btn">Sign Up</a>
+    </div>
+
+   
+    <div id="userLinks" style="display: none;">
+        <button onclick="logout()" class="logout-btn">Logout</a>
+    </div>
+</nav>
+
+            <section class="books-section">
+                <h1> BOOKS </h1>
+                <p> Discover your next book <br>
+                    start reading!
+                </p>
+
+                <div class="categories">
+                    <button class="category-btn active" data-category="all"> All </button>
+                    <button class="category-btn" data-category="literature"> Literature </button>
+                    <button class="category-btn" data-category="fiction"> Fiction </button>
+                    <button class="category-btn" data-category="horror"> Horror </button>
+                    <button class="category-btn" data-category="comics-manga"> Comics-Manga </button>
+                    <button class="category-btn" data-category="scientific"> Scientific </button>
+                </div>
+
+                <div class="books-container" id="books-container"></div>
+            </section>
+        </main>
+        <script src="data.js"> </script>
+        <script src="Filtering.js"></script>
+    </body>
+
+</html> 
+
